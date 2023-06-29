@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_28_172443) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_125503) do
   create_table "departments", force: :cascade do |t|
     t.string "name"
     t.string "abbreviation"
@@ -26,10 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_28_172443) do
     t.date "date_of_birth"
     t.string "place_of_birth"
     t.string "home_address"
-    t.integer "departments_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["departments_id"], name: "index_employees_on_departments_id"
+    t.integer "department_id"
+    t.index ["department_id"], name: "index_employees_on_department_id"
   end
 
   create_table "position_histories", force: :cascade do |t|

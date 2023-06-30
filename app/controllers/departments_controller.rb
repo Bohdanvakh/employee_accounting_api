@@ -8,7 +8,7 @@ class DepartmentsController < ApplicationController
 
   def show
     employees = @department.employees
-    render json: @department, include: { employees: {} }
+    render json: @department, include: :employees
   end
 
   def create

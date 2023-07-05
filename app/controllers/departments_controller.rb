@@ -21,10 +21,10 @@ class DepartmentsController < ApplicationController
   end
 
   def update
-    if department.update(department_params)
-      render json: department
+    if @department.update(department_params)
+      render json: @department
     else
-      render json: { errors: department.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @department.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

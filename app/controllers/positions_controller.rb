@@ -1,5 +1,5 @@
 class PositionsController < ApplicationController
-  before_action :find_position, only: [:show, :update, :destory]
+  before_action :find_position, only: [:show, :update, :destroy]
 
   def index
     positions = Position.all
@@ -20,10 +20,10 @@ class PositionsController < ApplicationController
   end
 
   def update
-    if position.update(position_params)
-      render json: position
+    if @position.update(position_params)
+      render json: @position
     else
-      render json: { errors: position.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @position.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

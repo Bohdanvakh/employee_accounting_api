@@ -17,10 +17,10 @@ class PositionHistoriesController < ApplicationController
   end
 
   def update
-    if position_history.update(position_history_params)
-      render json: position_history, status: :ok
+    if @position_history.update(position_history_params)
+      render json: @position_history, status: :ok
     else
-      render json: { errors: position_history.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @position_history.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

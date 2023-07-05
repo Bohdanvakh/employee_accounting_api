@@ -1,0 +1,556 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/departments":
+    get:
+      summary: List departments
+      tags:
+      - Departments
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create department
+      tags:
+      - Departments
+      parameters: []
+      responses:
+        '201':
+          description: Department created
+        '422':
+          description: Invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                abbreviation:
+                  type: string
+              required:
+              - name
+              - abbreviation
+  "/departments/{id}":
+    get:
+      summary: Retrieves a department
+      tags:
+      - Departments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Department found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  abbreviation:
+                    type: string
+                required:
+                - id
+                - name
+                - abbreviation
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  abbreviation:
+                    type: string
+                required:
+                - id
+                - name
+                - abbreviation
+        '404':
+          description: department not found
+        '406':
+          description: unsupported accept header
+    put:
+      summary: update department
+      tags:
+      - Departments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: department updated successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                department:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    abbreviation:
+                      type: string
+                  required:
+                  - name
+                  - abbreviation
+              required:
+              - department
+    delete:
+      summary: delete department
+      tags:
+      - Departments
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+  "/employees":
+    get:
+      summary: List employees
+      tags:
+      - Employees
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create employee
+      tags:
+      - Employees
+      parameters: []
+      responses:
+        '201':
+          description: employee created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                last_name:
+                  type: string
+                first_name:
+                  type: string
+                middle_name:
+                  type: string
+                passport_data:
+                  type: string
+                date_of_birth:
+                  type: string
+                  format: date
+                place_of_birth:
+                  type: string
+                home_address:
+                  type: string
+                department_id:
+                  type: integer
+              required:
+              - last_name
+              - first_name
+              - middle_name
+              - passport_data
+              - date_of_birth
+              - place_of_birth
+              - home_address
+              - department_id
+          application/xml:
+            schema:
+              type: object
+              properties:
+                last_name:
+                  type: string
+                first_name:
+                  type: string
+                middle_name:
+                  type: string
+                passport_data:
+                  type: string
+                date_of_birth:
+                  type: string
+                  format: date
+                place_of_birth:
+                  type: string
+                home_address:
+                  type: string
+                department_id:
+                  type: integer
+              required:
+              - last_name
+              - first_name
+              - middle_name
+              - passport_data
+              - date_of_birth
+              - place_of_birth
+              - home_address
+              - department_id
+  "/employees/{id}":
+    get:
+      summary: Retrieves an employee
+      tags:
+      - Employees
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  last_name:
+                    type: string
+                  first_name:
+                    type: string
+                  middle_name:
+                    type: string
+                  passport_data:
+                    type: string
+                  date_of_birth:
+                    type: string
+                    format: date
+                  place_of_birth:
+                    type: string
+                  home_address:
+                    type: string
+                  department_id:
+                    type: integer
+                required:
+                - last_name
+                - first_name
+                - middle_name
+                - passport_data
+                - date_of_birth
+                - place_of_birth
+                - home_address
+                - department_id
+    put:
+      summary: update employee
+      tags:
+      - Employees
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                employee:
+                  type: object
+                  properties:
+                    last_name:
+                      type: string
+                    first_name:
+                      type: string
+                    middle_name:
+                      type: string
+                    passport_data:
+                      type: string
+                    date_of_birth:
+                      type: string
+                      format: date
+                    place_of_birth:
+                      type: string
+                    home_address:
+                      type: string
+                    department_id:
+                      type: integer
+                  required:
+                  - last_name
+                  - first_name
+                  - middle_name
+                  - passport_data
+                  - date_of_birth
+                  - place_of_birth
+                  - home_address
+                  - department_id
+              required:
+              - employee
+    delete:
+      summary: delete employee
+      tags:
+      - Employees
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+  "/employees/{id}/position_histories":
+    post:
+      summary: create position_history
+      tags:
+      - Position_histories
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                started_on:
+                  type: string
+                  format: date
+                finished_on:
+                  type: string
+                  format: date
+                employee_id:
+                  type: integer
+                position_id:
+                  type: integer
+              required:
+              - started_on
+              - employee_id
+              - position_id
+  "/employees/{id}/position_histories/{id}":
+    put:
+      summary: update position_history
+      tags:
+      - Position_histories
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position_history:
+                  type: object
+                  properties:
+                    started_on:
+                      type: string
+                      format: date
+                    finished_on:
+                      type: string
+                      format: date
+                    employee_id:
+                      type: integer
+                    position_id:
+                      type: integer
+                  required:
+                  - started_on
+                  - employee_id
+                  - position_id
+              required:
+              - position_history
+  "/positions":
+    get:
+      summary: list positions
+      tags:
+      - Positions
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create position
+      tags:
+      - Positions
+      parameters: []
+      responses:
+        '201':
+          description: Position created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                salary:
+                  type: integer
+                vacation_days:
+                  type: integer
+              required:
+              - name
+              - salary
+              - vacation_days
+  "/positions/{id}":
+    get:
+      summary: Retrieves a position
+      tags:
+      - Positions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Position found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  salary:
+                    type: integer
+                  vacation_days:
+                    type: integer
+                required:
+                - id
+                - name,salary
+                - vacation_days
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  salary:
+                    type: integer
+                  vacation_days:
+                    type: integer
+                required:
+                - id
+                - name,salary
+                - vacation_days
+    put:
+      summary: update position
+      tags:
+      - Positions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: position updated successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                position:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    salary:
+                      type: integer
+                    vacation_days:
+                      type: integer
+                  required:
+                  - name
+                  - salary
+                  - vacation_days
+              required:
+              - position
+    delete:
+      summary: delete position
+      tags:
+      - Positions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+  "/employees/{id}/vacations":
+    post:
+      summary: Creates a vacation
+      tags:
+      - Vacations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: vacation created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                started_on:
+                  type: string
+                  format: date
+                finished_on:
+                  type: string
+                  format: date
+                employee_id:
+                  type: integer
+              required:
+              - started_on
+              - finished_on
+              - employee_id
+servers:
+- url: http://127.0.0.1:3000/
+  variables:
+    defaultHost:
+      default: http://127.0.0.1:3000/

@@ -36,10 +36,10 @@ class EmployeesController < ApplicationController
   end
 
   def update
-    if employee.update(employee_params)
-      render json: employee
+    if @employee.update(employee_params)
+      render json: @employee
     else
-      render json: { errors: employee.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: @employee.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

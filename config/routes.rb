@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+  resources :departments
+  resources :employees
+  # resources :position_histories
+  resources :positions
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :employees do
+    resources :position_histories, only: [:new, :create, :edit, :update]
+    resources :vacations, only: [:new, :create]
+  end
 end

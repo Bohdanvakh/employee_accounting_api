@@ -15,6 +15,8 @@ gem "puma", "~> 5.0"
 gem 'draper', '~> 4.0', '>= 4.0.2'
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 
+gem 'jbuilder'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 # gem "jbuilder"
 

@@ -1,6 +1,3 @@
 json.array! @positions do |position|
-  json.id position.id
-  json.name position.name
-  json.salary position.salary
-  json.vacation_days position.vacation_days
+  json.extract! position, :id, :name, :salary, :vacation_days
 end

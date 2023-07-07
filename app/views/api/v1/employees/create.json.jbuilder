@@ -1,5 +1,3 @@
 json.employee do
-  json.id @employee.id
-  json.first_name @employee.first_name
-  json.last_name @employee.last_name
+  json.extract! @employee, :id, :first_name, :last_name
 end

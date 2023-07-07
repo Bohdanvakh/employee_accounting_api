@@ -7,7 +7,7 @@ class Api::V1::VacationsController < ApplicationController
     if vacation.save
       render :create, status: :created
     else
-      render json: { errors: vacation.errors.full_messages }, status: :unprocessable_entity
+      render_error(vacation)
     end
   end
 

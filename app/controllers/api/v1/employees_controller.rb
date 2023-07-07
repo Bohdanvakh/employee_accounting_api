@@ -1,12 +1,12 @@
 class Api::V1::EmployeesController < ApplicationController
-  before_action :find_employee, only: [:edit, :update, :destroy]
+  before_action :find_employee, only: [:show, :edit, :update, :destroy]
 
   def index
     @employees = Employee.all
   end
 
   def show
-    @employee = Employee.find(params[:id]).decorate
+    @employee = @employee.decorate
 
     @vacations = @employee.vacations
     @total_vacation_days = @employee.total_vacation_days

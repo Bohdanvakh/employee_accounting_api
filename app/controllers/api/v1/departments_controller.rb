@@ -8,8 +8,7 @@ class Api::V1::DepartmentsController < ApplicationController
 
   def show
     employees = @department.employees
-    @current_manager = Department.current_manager
-
+    @current_manager = Department.current_manager(@department.id)
   end
 
   def create
